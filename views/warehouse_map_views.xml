@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="warehouse_map_form_view" model="ir.ui.view">
+        <field name="name">warehouse.map.form</field>
+        <field name="model">warehouse.map</field>
+        <field name="arch" type="xml">
+            <form string="Configuración del Mapa">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="warehouse_id"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Racks">
+                            <field name="rack_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="rack_type"/>
+                                    <field name="total_positions"/>
+                                    <field name="total_levels"/>
+                                    <field name="aisle_positions"/>
+                                    <field name="pallets_per_row"/>
+                                    <field name="has_front_back"/>
+                                    <field name="capacity"/>
+                                    <field name="capacity_note"/>
+                                    <field name="company_ids" widget="many2many_tags"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="warehouse_map_tree_view" model="ir.ui.view">
+        <field name="name">warehouse.map.tree</field>
+        <field name="model">warehouse.map</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="warehouse_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

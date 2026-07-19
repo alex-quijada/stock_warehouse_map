@@ -1,0 +1,33 @@
+/* ── Scrollbar ── */
+.o_wh_map ::-webkit-scrollbar{width:6px;height:6px}
+.o_wh_map ::-webkit-scrollbar-track{background:transparent}
+.o_wh_map ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:8px;border:2px solid transparent;background-clip:content-box}
+.o_wh_map ::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+
+/* ── Cells ── */
+.o_wh_map .wh-cell{transition:all .12s ease;border-radius:2px!important}
+.o_wh_map .wh-cell:hover{filter:brightness(.9);transform:scale(1.1);z-index:3;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.o_wh_map .wh-cell.has-stock:hover{outline:2px solid #0d6efd;outline-offset:-1px}
+
+/* ── Header dark mode ── */
+.o_dark .o_wh_map th[style*="background:#1e293b"]{background:#0f172a!important}
+.o_dark .o_wh_map th[style*="background:#475569"]{background:#1e293b!important}
+.o_dark .o_wh_map th[style*="background:#57534e"]{background:#292524!important}
+
+/* ── Dark mode ── */
+.o_dark .o_wh_map{background:#0f172a}
+.o_dark .o_wh_map .table td,.o_dark .o_wh_map .table th{border-color:#334155!important}
+.o_dark .o_wh_map td[style*="background:#fafafa"]{background:#0f172a!important}
+.o_dark .o_wh_map td[style*="background:#fff"]{background:#1e293b!important;color:#94a3b8!important}
+.o_dark .o_wh_map thead tr th{border-color:rgba(255,255,255,.08)!important}
+.o_dark .o_wh_map .bg-light{background:#1e293b!important}
+.o_dark .o_wh_map .border-start,.o_dark .o_wh_map .border-bottom{border-color:#334155!important}
+.o_dark .o_wh_map select.form-select{background:#1e293b!important;color:#e2e8f0!important}
+.o_dark .o_wh_map .table-light{background:#1e293b!important;color:#e2e8f0!important}
+.o_dark .o_wh_map .table-light th{background:#1e293b!important;color:#94a3b8!important;border-color:#334155!important}
+.o_dark .o_wh_map .card.shadow{background:#1e293b!important;color:#e2e8f0!important}
+.o_dark .o_wh_map .card-header.bg-dark{background:#0f172a!important}
+.o_dark .o_wh_map .badge.bg-secondary{background:#475569!important}
+.o_dark .o_wh_map .progress{background:#334155!important}
+.o_dark .o_wh_map tr[style*="background:#fef9c3"]{background:#1c1917!important}
+.o_dark .o_wh_map td[style*="background:#fef9c3"]{background:#1c1917!important;color:#a78bfa!important}

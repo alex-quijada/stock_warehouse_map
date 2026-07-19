@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_warehouse_map_user,warehouse.map.user,model_warehouse_map,stock.group_stock_user,1,0,0,0
+access_warehouse_map_manager,warehouse.map.manager,model_warehouse_map,stock.group_stock_manager,1,1,1,1
+access_warehouse_map_rack_user,warehouse.map.rack.user,model_warehouse_map_rack,stock.group_stock_user,1,0,0,0
+access_warehouse_map_rack_manager,warehouse.map.rack.manager,model_warehouse_map_rack,stock.group_stock_manager,1,1,1,1
+access_warehouse_map_import_wizard,warehouse.map.import.wizard,model_warehouse_map_import_wizard,stock.group_stock_manager,1,1,1,1

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="warehouse_map_main" model="warehouse.map"/>
+
+    <!-- RACK A: assigned to Metropol -->
+    <record id="rack_a" model="warehouse.map.rack">
+        <field name="name">RACK A</field>
+        <field name="sequence">10</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">43</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <record id="aisle_1" model="warehouse.map.rack">
+        <field name="name">PASILLO 1</field>
+        <field name="sequence">20</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">aisle</field>
+        <field name="total_positions">43</field>
+        <field name="capacity_note">Metropol</field>
+    </record>
+
+    <!-- RACK B: shared -->
+    <record id="rack_b" model="warehouse.map.rack">
+        <field name="name">RACK B</field>
+        <field name="sequence">30</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">43</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <!-- RACK C: assigned to Malesi and Guuao -->
+    <record id="rack_c" model="warehouse.map.rack">
+        <field name="name">RACK C</field>
+        <field name="sequence">40</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">43</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <record id="aisle_2" model="warehouse.map.rack">
+        <field name="name">PASILLO 2</field>
+        <field name="sequence">50</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">aisle</field>
+        <field name="total_positions">43</field>
+        <field name="capacity_note">Malesi-GUUAO-</field>
+    </record>
+
+    <!-- RACK D: shared -->
+    <record id="rack_d" model="warehouse.map.rack">
+        <field name="name">RACK D</field>
+        <field name="sequence">60</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">43</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <!-- RACK E: assigned to Metropolitana -->
+    <record id="rack_e" model="warehouse.map.rack">
+        <field name="name">RACK E</field>
+        <field name="sequence">70</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">43</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <record id="aisle_3" model="warehouse.map.rack">
+        <field name="name">PASILLO 3</field>
+        <field name="sequence">80</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">aisle</field>
+        <field name="total_positions">43</field>
+        <field name="capacity_note">Metropolitana</field>
+    </record>
+
+    <!-- RACK F: shared -->
+    <record id="rack_f" model="warehouse.map.rack">
+        <field name="name">RACK F</field>
+        <field name="sequence">90</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">43</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <!-- RACK G: 41 positions, assigned to Metropolis -->
+    <record id="rack_g" model="warehouse.map.rack">
+        <field name="name">RACK G</field>
+        <field name="sequence">100</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">41</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <record id="aisle_4" model="warehouse.map.rack">
+        <field name="name">PASILLO 4</field>
+        <field name="sequence">110</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">aisle</field>
+        <field name="total_positions">43</field>
+        <field name="capacity_note">Metropolis</field>
+    </record>
+
+    <!-- RACK H: 41 positions, assigned to GUUAO -->
+    <record id="rack_h" model="warehouse.map.rack">
+        <field name="name">RACK H</field>
+        <field name="sequence">120</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">41</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <record id="aisle_5" model="warehouse.map.rack">
+        <field name="name">PASILLO 5</field>
+        <field name="sequence">130</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">aisle</field>
+        <field name="total_positions">43</field>
+        <field name="capacity_note">GUUAO</field>
+    </record>
+
+    <!-- RACK I: 41 positions, shared -->
+    <record id="rack_i" model="warehouse.map.rack">
+        <field name="name">RACK I</field>
+        <field name="sequence">140</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">rack</field>
+        <field name="total_positions">41</field>
+        <field name="total_levels">3</field>
+        <field name="aisle_positions">15,37</field>
+        <field name="pallets_per_row">2</field>
+        <field name="has_front_back">False</field>
+    </record>
+
+    <!-- PASILLO 6: floor storage -->
+    <record id="pasillo_6" model="warehouse.map.rack">
+        <field name="name">PASILLO 6</field>
+        <field name="sequence">150</field>
+        <field name="map_id" ref="warehouse_map_main"/>
+        <field name="rack_type">special</field>
+        <field name="total_positions">90</field>
+        <field name="total_levels">1</field>
+        <field name="pallets_per_row">21</field>
+        <field name="has_front_back">False</field>
+    </record>
+</odoo>

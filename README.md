@@ -10,6 +10,18 @@ exportación a Excel.
 
 ---
 
+## Video explicativo
+
+Mira este video para ver el módulo en funcionamiento:
+
+📺 [Ver video explicativo](https://drive.google.com/file/d/14_UGwl7OUlyPLBermr9UicOOA_EXInxi/view?usp=sharing)
+
+## Imagen de referencia
+
+![Mapa Virtual del Almacén](static/description/foto.png)
+
+---
+
 ## Tabla de contenidos
 
 - [Requisitos](#requisitos)

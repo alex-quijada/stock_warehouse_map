@@ -145,20 +145,6 @@ Configuración del Mapa** (modelo `warehouse.map`).
 
 ---
 
-## Solución de problemas
-
-| Problema                          | Causa probable / Solución                                          |
-| --------------------------------- | ----------------------------------------------------------------- |
-| No aparece la app al buscar       | Odoo no ha reescaneado los módulos. Reinicia y pulsa *Actualizar Lista de Aplicaciones*. |
-| Error "No hay configuración de mapa para este almacén" | El almacén no tiene un registro `warehouse.map`. Crea uno en Configuración del Mapa. |
-| Error "almacén no físico"         | El almacén no tiene ubicación interna (`usage = internal`). Usa un almacén físico. |
-| El mapa no se actualiza tras editar JS | Actualiza la app y recarga con **Ctrl+Shift+R**. |
-| El Excel no exporta               | Falta `xlsxwriter`: `pip install xlsxwriter`. |
-| La importación Excel falla        | Falta `openpyxl`: `pip install openpyxl`. Verifica cabeceras: rack / posicion / nivel / puesto. |
-| Permisos insuficientes            | Requiere `stock.group_stock_manager` para editar y exportar. |
-
----
-
 ## Documentación técnica
 
 Para conocer en detalle **cómo funciona el mapa, su lógica, los endpoints y

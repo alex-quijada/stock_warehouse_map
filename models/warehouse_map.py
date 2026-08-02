@@ -9,6 +9,12 @@ class ResCompany(models.Model):
 
 
 class WarehouseMap(models.Model):
+    """Configuración del mapa virtual de un almacén.
+
+    Agrupa los racks/pasillos (`rack_ids`) que se dibujan en la grilla 2D.
+    Un mapa con `warehouse_id` vacío actúa como mapa global (usado como
+    fallback para el almacén principal).
+    """
     _name = 'warehouse.map'
     _description = 'Warehouse Map Configuration'
     _rec_name = 'warehouse_id'
@@ -18,6 +24,7 @@ class WarehouseMap(models.Model):
     company_id = fields.Many2one('res.company', related='warehouse_id.company_id', store=True)
 
     def action_open_map(self):
+        """Abre el formulario del mapa en pantalla completa."""
         self.ensure_one()
         return {
             'type': 'ir.actions.act_window',
@@ -31,6 +38,13 @@ class WarehouseMap(models.Model):
 
 
 class WarehouseMapRack(models.Model):
+    """Definición de un rack o pasillo dentro del mapa.
+
+    Tipos de rack:
+    - 'rack':    estantería con ubicaciones reales (RACK A-I).
+    - 'aisle':   pasillo, solo dibujo (PASILLO 1-5).
+    - 'special': PASILLO 6, grilla decorativa sin mapeo real (por ahora).
+    """
     _name = 'warehouse.map.rack'
     _description = 'Rack Definition'
     _order = 'sequence, id'
@@ -63,6 +77,7 @@ class WarehouseMapRack(models.Model):
 
     @api.depends('total_positions', 'total_levels', 'aisle_positions', 'pallets_per_row', 'has_front_back')
     def _compute_capacity(self):
+        """Capacidad total = posiciones útiles x niveles x pallets x lados."""
         for r in self:
             aisles = [int(x.strip()) for x in r.aisle_positions.split(',') if x.strip()] if r.aisle_positions else []
             usable = r.total_positions - len(aisles)
@@ -70,9 +85,11 @@ class WarehouseMapRack(models.Model):
             r.capacity = usable * r.total_levels * r.pallets_per_row * sides
 
     def get_usable_positions(self):
+        """Posiciones de la grilla que no son pasillo."""
         self.ensure_one()
         aisles = [int(x.strip()) for x in self.aisle_positions.split(',') if x.strip()] if self.aisle_positions else []
         return [p for p in range(1, self.total_positions + 1) if p not in aisles]
 
     def get_location_prefix(self, warehouse):
+        """Prefijo del árbol de ubicaciones del rack (completo, p.ej. PR01/Stock/RACK A)."""
         return f'{warehouse.view_location_id.complete_name}/{self.name}'

@@ -2,6 +2,11 @@ from odoo import api, fields, models
 
 
 class StockLocation(models.Model):
+    """Extensión de stock.location con los campos del mapa virtual.
+
+    Unifica la ubicación real (RACK A01-1) con su posición en la grilla del
+    mapa (letra, fila, nivel, puesto) para poder pintar la ocupación.
+    """
     _inherit = 'stock.location'
 
     # Legacy fields (kept for backward compatibility with existing data)
@@ -31,6 +36,7 @@ class StockLocation(models.Model):
 
     @api.depends('quant_ids.quantity', 'quant_ids.reserved_quantity')
     def _compute_map_color(self):
+        """Color del mapa: gris si está vacía, verde si tiene stock."""
         for loc in self:
             total_qty = sum(loc.quant_ids.mapped('quantity'))
             if total_qty == 0:
@@ -40,6 +46,7 @@ class StockLocation(models.Model):
 
     @api.depends('quant_ids.product_id.company_id')
     def _compute_map_company(self):
+        """Empresa del primer producto con stock en la ubicación."""
         for loc in self:
             company = False
             for quant in loc.quant_ids:

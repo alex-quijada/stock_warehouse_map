@@ -13,6 +13,12 @@ except ImportError:
 
 
 class WarehouseMapImportWizard(models.TransientModel):
+    """Asistente para importar ubicaciones del mapa desde un archivo Excel.
+
+    El Excel debe contener columnas identificables por nombre:
+    rack / posicion / nivel / puesto (mayúsculas o minúsculas).
+    Ejemplo: 'rack' = RACK A, 'posicion' = 1, 'nivel' = 1, 'puesto' = 1.
+    """
     _name = 'warehouse.map.import.wizard'
     _description = 'Asistente de importación de ubicaciones desde Excel'
 
@@ -26,6 +32,7 @@ class WarehouseMapImportWizard(models.TransientModel):
     log = fields.Text(string="Resultado")
 
     def action_import(self):
+        """Lee el Excel y crea/actualiza las ubicaciones del mapa."""
         self.ensure_one()
         log_lines = []
         success = 0
@@ -41,6 +48,7 @@ class WarehouseMapImportWizard(models.TransientModel):
             wb = openpyxl.load_workbook(data, read_only=True)
             ws = wb.active
 
+            # Mapea cabeceras del Excel a campos (por coincidencia parcial).
             headers = [cell.value for cell in next(ws.iter_rows(min_row=1, max_row=1))]
             col_map = {
                 'rack': None, 'posicion': None, 'nivel': None,
@@ -67,6 +75,7 @@ class WarehouseMapImportWizard(models.TransientModel):
                     nivel_str = str(int(float(nivel_val))) if nivel_val else '1'
                     puesto_str = str(int(float(puesto_val))) if puesto_val else '1'
 
+                    # Nombre canónico de la ubicación, p.ej. 'A01-N1-P1'.
                     complete_name = f"{rack_str}-{str(pos_int).zfill(2)}-N{nivel_str}-P{puesto_str}"
 
                     existing = self.env['stock.location'].search([
@@ -111,6 +120,7 @@ class WarehouseMapImportWizard(models.TransientModel):
         return self._reload()
 
     def _reload(self):
+        """Recarga el formulario en modo resultado (muestra el log)."""
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'warehouse.map.import.wizard',

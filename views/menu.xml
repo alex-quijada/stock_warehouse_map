@@ -20,15 +20,20 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_warehouse_map"
+    <menuitem id="menu_warehouse_map_group"
               name="Mapa Virtual"
               parent="stock.menu_stock_config_settings"
-              sequence="3"
+              sequence="3"/>
+
+    <menuitem id="menu_warehouse_map"
+              name="Ver Mapa Virtual"
+              parent="menu_warehouse_map_group"
+              sequence="1"
               action="action_warehouse_map"/>
 
     <menuitem id="menu_import_locations"
               name="Importar ubicaciones"
-              parent="stock.menu_stock_config_settings"
-              sequence="4"
+              parent="menu_warehouse_map_group"
+              sequence="2"
               action="action_import_warehouse_locations"/>
 </odoo>

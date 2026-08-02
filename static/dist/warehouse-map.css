@@ -25,9 +25,15 @@
 .o_dark .o_wh_map select.form-select{background:#1e293b!important;color:#e2e8f0!important}
 .o_dark .o_wh_map .table-light{background:#1e293b!important;color:#e2e8f0!important}
 .o_dark .o_wh_map .table-light th{background:#1e293b!important;color:#94a3b8!important;border-color:#334155!important}
-.o_dark .o_wh_map .card.shadow{background:#1e293b!important;color:#e2e8f0!important}
+.o_dark .o_wh_map .card.shadow-lg{background:#1e293b!important;color:#e2e8f0!important}
 .o_dark .o_wh_map .card-header.bg-dark{background:#0f172a!important}
 .o_dark .o_wh_map .badge.bg-secondary{background:#475569!important}
 .o_dark .o_wh_map .progress{background:#334155!important}
 .o_dark .o_wh_map tr[style*="background:#fef9c3"]{background:#1c1917!important}
 .o_dark .o_wh_map td[style*="background:#fef9c3"]{background:#1c1917!important;color:#a78bfa!important}
+
+/* ── Tooltip drag handle ── */
+.wh-tip-global{transition:box-shadow .2s ease}
+.wh-tip-global:hover{box-shadow:0 8px 32px rgba(0,0,0,.18)!important}
+.wh-tip-global [data-wh-drag="true"]:active{cursor:grabbing!important}
+

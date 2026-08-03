@@ -165,8 +165,3 @@ los condicionales**, consulta:
 - [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md) — arquitectura, flujo de
   datos, lógica del backend y del frontend.
 
----
-
-## Licencia
-
-**LGPL-3** — puedes usarlo, modificarlo y redistribuirlo libremente.
